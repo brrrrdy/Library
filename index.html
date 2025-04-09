@@ -4,7 +4,99 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="script.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>My Library</title>
   </head>
-  <body></body>
+  <body>
+    <body>
+      <header class="header"></header>
+
+      <main class="container">
+        <section class="left-container"></section>
+
+        <section class="right-container">
+          <div class="top-box">
+            <p>Add books to your personal library here!</p>
+          </div>
+
+          <div class="middle-box">
+            <form id="book-form">
+              <legend>Add Book</legend>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="title">Title*</label>
+                  <input
+                    type="text"
+                    id="title"
+                    name="title"
+                    required
+                    placeholder="book title..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Author*</label>
+                  <input
+                    type="text"
+                    id="author"
+                    name="author"
+                    required
+                    placeholder="author..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="year">Year*</label>
+                  <input
+                    type="number"
+                    id="year"
+                    name="year"
+                    required
+                    placeholder="year published..."
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Pages*</label>
+                  <input
+                    type="number"
+                    id="pages"
+                    name="pages"
+                    required
+                    placeholder="pages..."
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="read">Read?</label>
+                  <input type="checkbox" id="read" name="read" />
+                </div>
+
+                <div class="form-group">
+                  <label for="publisher">Publisher*</label>
+                  <input
+                    type="text"
+                    id="publisher"
+                    name="publisher"
+                    required
+                    placeholder="book publisher..."
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="bottom-box">
+            <button type="submit" form="submit-form">Submit</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>
+          Built by
+          <a href="https://github.com/brrrrdy/Sign-up-Form" target="_blank"
+            >Tom Alvarez as part of the Odin Project 2025</a
+          >
+        </p>
+      </footer>
+    </body>
+  </body>
 </html>
