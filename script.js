@@ -1,7 +1,6 @@
 const myLibrary = [];
 
-// the constructor
-
+// Book constructor
 function Book(title, author, year, pages, read, publisher) {
   this.title = title;
   this.author = author;
@@ -16,13 +15,56 @@ function Book(title, author, year, pages, read, publisher) {
   };
 }
 
-// take params, create a book then store it in the array
-
+// add a new book to the library
 function addBookToLibrary(title, author, year, pages, read, publisher) {
   const newBook = new Book(title, author, year, pages, read, publisher);
   myLibrary.push(newBook);
+  renderLibrary();
 }
 
-// function that loops through the array and displays each book on the page.
+// render the library
+function renderLibrary() {
+  const leftContainer = document.querySelector(".left-container");
+  leftContainer.innerHTML = "";
 
-function renderLibrary() {}
+  myLibrary.forEach((book) => {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card");
+    bookCard.dataset.id = book.id;
+
+    bookCard.innerHTML = `
+      <h3 class="book-title">${book.title}</h3>
+      <p class="book-author">by ${book.author}</p>
+      <p class="book-meta">Published: ${book.year} • Pages: ${book.pages}</p>
+      <p class="book-publisher">Publisher: ${book.publisher}</p>
+      <p class="book-status">
+        Status: <span class="status-read">${
+          book.read ? "Read" : "Unread"
+        }</span>
+      </p>
+      <div class="card-buttons">
+        <button class="toggle-read-btn">Toggle Read</button>
+        <button class="remove-btn">Remove</button>
+      </div>
+    `;
+
+    leftContainer.appendChild(bookCard);
+  });
+}
+
+// form logic to add new books
+
+document.getElementById("book-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const year = document.getElementById("year").value;
+  const pages = document.getElementById("pages").value;
+  const read = document.getElementById("read").checked;
+  const publisher = document.getElementById("publisher").value;
+
+  addBookToLibrary(title, author, year, pages, read, publisher);
+
+  document.getElementById("book-form").reset();
+});

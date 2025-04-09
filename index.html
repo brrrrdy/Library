@@ -3,14 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="text/javascript" src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>My Library</title>
   </head>
   <body>
     <body>
       <header class="header"></header>
-
       <main class="container">
         <section class="left-container"></section>
 
@@ -34,7 +32,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="last-name">Author*</label>
+                  <label for="author">Author*</label>
                   <input
                     type="text"
                     id="author"
@@ -54,7 +52,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="phone">Pages*</label>
+                  <label for="pages">Pages*</label>
                   <input
                     type="number"
                     id="pages"
@@ -63,12 +61,10 @@
                     placeholder="pages..."
                   />
                 </div>
-
                 <div class="form-group">
                   <label for="read">Read?</label>
                   <input type="checkbox" id="read" name="read" />
                 </div>
-
                 <div class="form-group">
                   <label for="publisher">Publisher*</label>
                   <input
@@ -80,11 +76,8 @@
                   />
                 </div>
               </div>
+              <button type="submit">Submit</button>
             </form>
-          </div>
-
-          <div class="bottom-box">
-            <button type="submit" form="submit-form">Submit</button>
           </div>
         </section>
       </main>
@@ -97,6 +90,7 @@
           >
         </p>
       </footer>
+      <script type="text/javascript" src="script.js"></script>
     </body>
   </body>
 </html>
