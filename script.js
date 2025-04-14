@@ -10,19 +10,26 @@ function Book(title, author, year, pages, read, publisher) {
   this.publisher = publisher;
   this.id = crypto.randomUUID();
   this.info = function () {
-    let result = `${this.title} by ${this.author} contains ${this.pages} pages, and was published in ${this.year} by ${this.publisher}.`;
-    return result;
+    return `${this.title} by ${this.author} contains ${this.pages} pages, and was published in ${this.year} by ${this.publisher}.`;
   };
 }
 
-// add a new book to the library
+// Read status
+
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
+
+// Add a new book to the library
+
 function addBookToLibrary(title, author, year, pages, read, publisher) {
   const newBook = new Book(title, author, year, pages, read, publisher);
   myLibrary.push(newBook);
   renderLibrary();
 }
 
-// render the library
+// Render the library
+
 function renderLibrary() {
   const leftContainer = document.querySelector(".left-container");
   leftContainer.innerHTML = "";
@@ -48,11 +55,28 @@ function renderLibrary() {
       </div>
     `;
 
+    // Toggle read status
+
+    bookCard.querySelector(".toggle-read-btn").addEventListener("click", () => {
+      book.toggleRead();
+      renderLibrary();
+    });
+
+    // Remove book
+
+    bookCard.querySelector(".remove-btn").addEventListener("click", () => {
+      const index = myLibrary.findIndex((b) => b.id === book.id);
+      if (index !== -1) {
+        myLibrary.splice(index, 1);
+        renderLibrary();
+      }
+    });
+
     leftContainer.appendChild(bookCard);
   });
 }
 
-// form logic to add new books
+// Form logic to add new books
 
 document.getElementById("book-form").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -65,6 +89,5 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
   const publisher = document.getElementById("publisher").value;
 
   addBookToLibrary(title, author, year, pages, read, publisher);
-
   document.getElementById("book-form").reset();
 });
