@@ -67,25 +67,25 @@ body {
 }
 
 /* Left Container - Books CHANGE TO GRID IN FINAL DESIGN */
+
 .left-container {
-  flex: 1;
-  background: rgb(34, 193, 195);
+  flex: 2;
   background: linear-gradient(
     0deg,
     rgba(34, 193, 195, 1) 0%,
     rgba(253, 187, 45, 1) 100%
   );
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px 15px;
   padding: 40px;
   color: var(--text-light);
-  position: relative;
 }
 
 /* Right side - Form */
 .right-container {
   flex: 1;
+  width: 50%;
   display: flex;
   flex-direction: column;
   background: white;
@@ -129,6 +129,13 @@ legend {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
+}
+
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  accent-color: var(--primary);
+  margin-top: 8px;
 }
 
 label {
@@ -194,6 +201,24 @@ button:hover {
   text-decoration: underline;
 }
 
+/* cards */
+
+.card-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.card-buttons button {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  width: auto;
+  white-space: nowrap;
+}
+
 /* Footer */
 .footer {
   background: rgba(0, 0, 0, 0.9);
@@ -217,31 +242,30 @@ a {
   text-decoration: underline;
 }
 
-/* Responsive design */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
   }
 
   .left-container {
-    min-height: 50vh;
-    align-items: center;
-    text-align: center;
+    flex: 1;
   }
 
-  .sub-title-box p {
-    max-width: 100%;
-  }
-
-  .festival-logo {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin: 20px 0;
+  .right-container {
+    width: 100%;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .card-buttons {
+    gap: 8px;
+  }
+
+  .card-buttons button {
+    padding: 6px 8px;
+    font-size: 0.8rem;
   }
 }
 
@@ -252,53 +276,72 @@ a {
   }
 
   .header img {
+    height: 30px;
+    margin: 0 10px;
+  }
+
+  .container {
+    margin-top: 60px;
+    flex-direction: column;
+  }
+
+  .left-container {
+    flex: 1;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .right-container {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-buttons button {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: 50px;
+    padding: 5px 10px;
+  }
+
+  .header img {
     height: 25px;
     margin: 0 5px;
   }
 
   .container {
-    margin-top: 60px;
-    min-height: calc(100vh - 60px - 15px);
+    margin-top: 50px;
+    flex-direction: column;
   }
 
   .left-container {
-    padding: 20px;
+    flex: 1;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
-  .title-box h1 {
-    font-size: 2.5rem;
+  .right-container {
+    flex: 1;
+    width: 100%;
   }
 
-  .sub-title-box p {
-    font-size: 1.2rem;
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 
-  .festival-logo img {
-    width: 300px;
-  }
-
-  .top-box,
-  .middle-box,
-  .bottom-box {
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .title-box h1 {
-    font-size: 2rem;
-  }
-
-  .sub-title-box p {
-    font-size: 1rem;
-  }
-
-  .festival-logo img {
-    width: 300px;
+  .card-buttons button {
+    padding: 5px 8px;
+    font-size: 0.8rem;
   }
 
   button {
-    padding: 12px 24px;
+    padding: 12px 20px;
     font-size: 1rem;
   }
 }
