@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.6;
   color: var(--text-dark);
   display: flex;
@@ -49,13 +49,32 @@ body {
   box-shadow: var(--shadow);
 }
 
-.header img {
-  height: 40px;
-  margin: 0 15px;
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-logo {
+  height: 30px;
+  width: auto;
   transition: transform 0.3s ease;
 }
 
-.header img:hover {
+.header-logo:hover {
+  transform: scale(1.2);
+}
+
+h1 {
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  transition: transform 0.3s ease;
+}
+
+h1:hover {
   transform: scale(1.05);
 }
 
@@ -271,7 +290,6 @@ a {
 
 @media (max-width: 768px) {
   .header {
-    height: 60px;
     padding: 5px 10px;
   }
 
