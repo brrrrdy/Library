@@ -91,3 +91,18 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
   library.addBook(title, author, year, pages, read, publisher);
   document.getElementById("book-form").reset();
 });
+
+// Form validation
+document.getElementById("book-form").addEventListener("input", function (e) {
+  const title = document.getElementById("title").value;
+  const author = document.getElementById("author").value;
+  const year = document.getElementById("year").value;
+  const pages = document.getElementById("pages").value;
+  const publisher = document.getElementById("publisher").value;
+
+  if (title && author && year && pages && publisher) {
+    this.querySelector('button[type="submit"]').disabled = false;
+  } else {
+    this.querySelector('button[type="submit"]').disabled = true;
+  }
+});
