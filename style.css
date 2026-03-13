@@ -383,6 +383,7 @@ button:hover {
     flex: 1;
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 15px;
   }
 
   .right-container {
